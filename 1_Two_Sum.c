@@ -1,6 +1,7 @@
 /**
 	https://leetcode.com/problems/two-sum/description/
  * Note: The returned array must be malloced, assume caller calls free().
+ *  (Easy)
  */
 int* twoSum(int* nums, int numsSize, int target) {
     int* p_res = (int*)malloc(sizeof(int) * 2);
