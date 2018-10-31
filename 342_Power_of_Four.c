@@ -1,7 +1,7 @@
 /*
-* 342. Power of Four
+* 342. Power of Four (Easy)
 * https://leetcode.com/problems/power-of-four/description/
-* (Easy)
+* 
 */
 
 bool tempFunc(int n)

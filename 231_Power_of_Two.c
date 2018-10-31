@@ -1,7 +1,7 @@
 /*
-https://leetcode.com/problems/power-of-two/description/
-
-https://leetcode.com/submissions/detail/153126851/
+* 231. Power of Two (Easy)
+* https://leetcode.com/problems/power-of-two/description/
+* https://leetcode.com/submissions/detail/153126851/
 */
 bool isPowerOfTwo(int n) {
   if (n == 0)

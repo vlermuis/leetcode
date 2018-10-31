@@ -1,7 +1,7 @@
 /*
-* 223. Rectangle Area
+* 223. Rectangle Area (Medium)
 * https://leetcode.com/problems/rectangle-area/description/
-* Medium
+* 
 */
 
 int max(int a, int b)

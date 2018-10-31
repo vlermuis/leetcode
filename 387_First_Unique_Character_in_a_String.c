@@ -1,7 +1,7 @@
 /*
-https://leetcode.com/problems/first-unique-character-in-a-string/submissions/1
-
-
+* 387. First Unique Character in a String (Easy)
+* https://leetcode.com/problems/first-unique-character-in-a-string/description/
+*
 */
 bool is_anoter_one_in(char* s, int size, char c, int idx)
 {

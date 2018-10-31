@@ -1,6 +1,7 @@
 /*
-https://leetcode.com/problems/merge-sorted-array/description/
-
+* 88. Merge Sorted Array (Easy)
+* https://leetcode.com/problems/merge-sorted-array/description/
+*
 */
 void quicksort(int *A, int len);
 

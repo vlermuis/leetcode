@@ -1,7 +1,7 @@
 /*
-https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/
-
-https://leetcode.com/submissions/detail/153123345/
+* 80. Remove Duplicates from Sorted Array II (Medium)
+* https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/
+* https://leetcode.com/submissions/detail/153123345/
 */
 void shift_array(int* array, int size)
 {

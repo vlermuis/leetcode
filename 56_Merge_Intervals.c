@@ -1,8 +1,7 @@
 /*
-
-
-https://leetcode.com/problems/merge-intervals/description/
-https://leetcode.com/submissions/detail/153705826/
+* 56. Merge Intervals (Medium)
+* https://leetcode.com/problems/merge-intervals/description/
+* https://leetcode.com/submissions/detail/153705826/
 */
  typedef struct {
       int start;

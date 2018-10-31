@@ -1,7 +1,7 @@
 /*
-https://leetcode.com/problems/single-number-ii/description/
-
-
+* 137. Single Number II (Medium)
+* https://leetcode.com/problems/single-number-ii/description/
+*
 */
 bool isElementThereFreeTimes(int* nums, int element, int numSize)
 {

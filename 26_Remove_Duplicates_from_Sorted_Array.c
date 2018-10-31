@@ -1,6 +1,7 @@
 /*
-https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
-easy
+* 26. Remove Duplicates from Sorted Array (Easy)
+* https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+*
 */
 void shift_array(int * a, int start_idx, int len)
 {

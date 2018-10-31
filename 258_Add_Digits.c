@@ -1,6 +1,7 @@
 /*
-https://leetcode.com/problems/add-digits/description/
-https://leetcode.com/submissions/detail/153117223/
+* 258. Add Digits (Easy)
+* https://leetcode.com/problems/add-digits/description/
+* https://leetcode.com/submissions/detail/153117223/
 */
 int sumfig(int n)
 {

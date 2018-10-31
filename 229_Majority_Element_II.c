@@ -1,6 +1,6 @@
 /*
-
-https://leetcode.com/problems/majority-element-ii/description/
+* 229. Majority Element II (Medium)
+* https://leetcode.com/problems/majority-element-ii/description/
 */
 
 int tin_array(int* array, int size, int element)

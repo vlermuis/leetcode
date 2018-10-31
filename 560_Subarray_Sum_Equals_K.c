@@ -1,7 +1,7 @@
 /*
-https://leetcode.com/problems/subarray-sum-equals-k/description/
-
-medium
+* 560. Subarray Sum Equals K (Medium) 
+* https://leetcode.com/problems/subarray-sum-equals-k/description/
+*
 */
 int subarraySum(int* nums, int numsSize, int k) {
     int result = 0;

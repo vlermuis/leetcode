@@ -1,9 +1,7 @@
-
 /*
-https://leetcode.com/problems/remove-element/description/
-
-easy
-
+* 27. Remove Element (Easy)
+* https://leetcode.com/problems/remove-element/description/
+*
 */
 
 void shift_array(int * a, int start_idx, int len)

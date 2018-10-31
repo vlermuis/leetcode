@@ -1,7 +1,8 @@
 /*
-https://leetcode.com/problems/number-of-1-bits/description/
-https://leetcode.com/submissions/detail/153111541/
-
+* 191. Number of 1 Bits (Easy)
+* https://leetcode.com/problems/number-of-1-bits/description/
+* https://leetcode.com/submissions/detail/153111541/
+*
 */
 int hammingWeight(uint32_t n) {
   int r = 0;

@@ -1,6 +1,8 @@
-/* https://leetcode.com/problems/power-of-three/description/
- *  Easy
- */
+/* 
+* 326. Power of Three (Easy) 
+* https://leetcode.com/problems/power-of-three/description/
+*  
+*/
 
 bool tempFunc(int n)
 {

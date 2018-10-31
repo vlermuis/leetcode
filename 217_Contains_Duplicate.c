@@ -1,6 +1,7 @@
 /*
-https://leetcode.com/problems/contains-duplicate/description/
-easy
+* 217. Contains Duplicate (Easy)
+* https://leetcode.com/problems/contains-duplicate/description/
+*
 */
 void quicksort(int *A, int len);
 

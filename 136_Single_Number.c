@@ -1,6 +1,7 @@
 /*
-https://leetcode.com/problems/single-number/description/
-https://leetcode.com/submissions/detail/153449812/
+* 136. Single Number (Easy)
+* https://leetcode.com/problems/single-number/description/
+* https://leetcode.com/submissions/detail/153449812/
 */
 bool isElementThereTwice(int* nums, int element, int numSize)
 {

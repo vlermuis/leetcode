@@ -1,8 +1,7 @@
 /*
-* 836. Rectangle Overlap
-* (Easy)
+* 836. Rectangle Overlap (Easy)
 * https://leetcode.com/problems/rectangle-overlap/description/
-
+*
 */
 
 bool isRectangleOverlap(int* rec1, int rec1Size, int* rec2, int rec2Size) {

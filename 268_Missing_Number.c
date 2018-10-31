@@ -1,6 +1,7 @@
 /*
-https://leetcode.com/problems/missing-number/description/
-easy 
+* 268. Missing Number (Easy)
+* https://leetcode.com/problems/missing-number/description/
+*
 */
 
 void quicksort(int *A, int len);

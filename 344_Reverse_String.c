@@ -1,6 +1,8 @@
-/* https://leetcode.com/problems/reverse-string/description/
- * Easy
- */
+/* 
+* 344. Reverse String (Easy)
+* https://leetcode.com/problems/reverse-string/description/
+* 
+*/
 
 
 char* reverseString(char* s) {

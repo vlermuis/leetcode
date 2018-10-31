@@ -1,7 +1,8 @@
 /*
-https://leetcode.com/problems/move-zeroes/description/
-easy
-
+* 283. Move Zeroes (Easy)
+* https://leetcode.com/problems/move-zeroes/description/
+*
+*
 */
 
 void shift_array(int * a, int start_idx, int len)
