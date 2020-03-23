@@ -1,0 +1,151 @@
+
+▲
+
+1m 13s left
+ALL
+1
+2
+3
+4
+5
+6
+1. Device Activity Service
+A device contains a hardware sensor that detects when the device is in motion, and when it is at rest.   When the sensor detects a transition in motion state (i.e. active to rest, or rest to active), it sends a message to the device's main CPU over a serial interface.  Each message transmitted over the serial interface contains a message start sequence, event counter, time stamp, motion state, and a checksum byte.
+
+ 
+
+The message frame is serialized as follows:
+
+ 
+
+Field	Description
+Message Detect	A 2-byte sequence of 0xCC followed by 0x33
+Event Counter	
+8-bit unsigned integer.  It is incremented on each event (i.e. counts from 0 to 255, then rolls over to 0).
+
+Time Stamp	
+32 bit unsigned integer representing the time in milliseconds at which the event occurred, relative to when the sensor was powered.
+
+Device State	
+8-bit unsigned integer, where a value of 0 represents a "rest" event, and a 1 represents an "active" event.
+
+Checksum	
+8-bit unsigned integer containing the sum of all other bytes in the message.
+
+ 
+
+Example Frame:
+
+ 
+
+The following is a single, complete frame of data as transmitted by the sensor.
+
+ 
+
+Index	0	1	2	3	4	5	6	7	8
+Data	0xCC	0x33	0x01	0xD0	0x07	0x00	0x00	0x01	0xD8
+Field	
+Message Detect
+
+Event
+
+Counter
+
+Time Stamp	
+Device
+
+State
+
+Checksum
+ 
+
+In this frame, the Event Counter is 1, the Time Stamp is 2000ms, and the Device State is Active.
+ 
+
+Objective:
+
+
+Implement the missing stream processing functions to process message frames received from this sensor, printing valid frames to the console when they are detected. 
+
+ 
+
+Functions are provided to assist in computing the checksum and time-stamp, as is the function to print frame data to the console.
+ 
+
+Scoring Criteria:
+
+ 
+
+At a minimum, a correct solution must:
+
+1) Correctly identify and parse valid data frames
+
+2) Ignore frames with invalid checksums
+
+3) Discard unframed data bytes between valid frames
+ 
+
+Additional marks will be awarded if the solution:
+
+1) Identifies and discards truncated frames of valid data, without discarding valid packets
+
+2) Can correctly process a stream of data containing multiple error sources
+
+ 
+
+Note:  Data is delivered to the stream processing function as arbitrary-length arrays of bytes.  A single frame may contain only part of a valid frame, or it may contain multiple frames of data.  As a result, the stream processing context must be preserved between calls to the function.
+
+ 
+
+Important
+
+ 
+
+ 
+
+ 
+
+You must click the Run Code button for your code to be scored by Hackerrank.  Pressing Run Code will also allow you to compare your solution's output against the expected output, and can be useful for debugging your code .  There are no limits on how many times you can submit your code for evaluation.
+
+ 
+
+ 
+
+ 
+
+C
+Autocomplete Ready
+
+
+
+
+139404142434445464748495051525354555657585960616263646566676869707172737475767778
+e -- pointer to an in-progress message frame
+// [in] stream_byte -- byte to inject into the frame's timestamp field
+static void compute_frame_timestamp(message_frame_t* frame, uint8_t stream_byte);
+
+// Forward declaration of the function to display properly decoded frame data.
+// This function is to be called by the user whenever a correctly formatted data
+// frame is encountered.
+// [in] frame -- pointer to a complete message frame 
+static void print_sensor_data(const message_frame_t* frame);
+
+#define TR_IDLE             (0)
+#define TR_IN_PROGRESS      (1)
+#define MSG0BYTE            (0xCC)
+#define MSG1BYTE            (0x33)
+
+#define MSGCHECKSUMPOS      (0x08)
+#define MSGSIZE             (9)
+
+#define OK                  (0)
+
+Line: 39 Col: 1
+Test Results
+Custom Input
+
+Run
+
+
+Submit Code
+TR_IDLE
