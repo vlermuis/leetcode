@@ -19,6 +19,20 @@ int main() {
     cout<<i<<"\n"<<l<<"\n"<<c<<"\n";
     cout<<fixed<<setprecision(3)<<f<<"\n";
     cout<<fixed<<setprecision(9)<<d<<"\n";
+/**********************************************************/
+
+
+    int n = 0;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    for (int i = n-1; i >=0; i--)
+    {
+        cout << arr[i] << " ";
+    }
 
 
     return 0;
