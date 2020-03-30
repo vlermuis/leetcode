@@ -50,6 +50,30 @@ string numbers[9] = {"one", "two", "three", "four", "five", "six", "seven", "eig
     cout << "Greater than 9" << endl;
     }
 
+/***********************************************************/
+
+     int a;
+     int b;
+     cin >> a;
+     cin >> b;
+     for (int i = a; i <= b; i++)
+     {
+        if ((i >= 1) && (i <= 9))
+        {
+            cout << numbers[i-1] << endl;
+        }
+        else
+        {
+            if ((i % 2))
+            {
+                cout << "odd" << endl;
+            }            
+            else 
+            {
+                cout << "even" << endl;
+            }
+        }
+     }
 
     return 0;
 }
