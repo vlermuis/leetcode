@@ -94,7 +94,12 @@ int binarySearch(int* nums, int numsSize, int val)
     }
     return -1;
 }
-
+void swapPointers2(int** p1, int** p2)
+{
+    int* ptemp = *p2;
+    *p2 = *p1;
+    *p1 = ptemp;
+}
 
 int data[] = {12, 9, 2, 1, 4, 23, 7, 5};//8
 
@@ -113,6 +118,17 @@ int main()
 
     printf("binarySearch : %d\n", binarySearch(data2, 11, 33));
 
+    int a = 35;
+    int b = 99;
+
+    int* p1 = &a;
+    int* p2 = &b;
+
+    printf("*p1:%d; *p2:%d\n", *p1, *p2);
+
+    swapPointers2(&p1, &p2);
+
+    printf("*p1:%d; *p2:%d\n", *p1, *p2);
 
     return 0;
 }
