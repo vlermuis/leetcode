@@ -64,8 +64,41 @@ int countOneBits(int num)
     return result;
 }
 
+int binarySearch(int* nums, int numsSize, int val)
+{
+    int idx = -1;
+    int right = numsSize-1;
+    int left = 0;
+    while(1)
+    {
+        idx = ((right - left)/2) + left;
+        if (nums[idx] == val)
+        {
+            return idx;
+        }
+        else
+        {
+            if (val < nums[idx] )
+            {
+                right = idx - 1;
+            }
+            else
+            {
+                left = idx + 1;
+            }
+        }
+        if (right < left)
+        {
+            break;
+        }
+    }
+    return -1;
+}
 
-int data[] = {12, 9, 2, 1, 4, 23, 7, 5};
+
+int data[] = {12, 9, 2, 1, 4, 23, 7, 5};//8
+
+int data2[] = {0, 1, 5, 9, 11, 23, 39, 45, 55, 99, 100}; //11
 int main()
 {
     int num = 0;
@@ -77,6 +110,8 @@ int main()
     printf("findDiffBetweenMaxAndMin : %d\n", findDiffBetweenMaxAndMin(data, 8));
 
     printf("countOneBits : %d\n", countOneBits(num));
+
+    printf("binarySearch : %d\n", binarySearch(data2, 11, 33));
 
 
     return 0;
