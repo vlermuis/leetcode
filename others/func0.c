@@ -101,6 +101,28 @@ void swapPointers2(int** p1, int** p2)
     *p1 = ptemp;
 }
 
+
+
+int findMaxDiff(int* nums, int numsSize)
+{
+    int min = nums[0];
+    int max_diff = nums[1] - nums[0];
+    int i;
+    for (i = 0; i < numsSize; i++)
+    {
+        if ((nums[i] - min) > max_diff)
+        {
+            max_diff = nums[i] - min;
+        }
+        if (nums[i] < min)
+        {
+            min = nums[i];
+        }
+    }
+    return max_diff;
+
+}
+
 int data[] = {12, 9, 2, 1, 4, 23, 7, 5};//8
 
 int data2[] = {0, 1, 5, 9, 11, 23, 39, 45, 55, 99, 100}; //11
