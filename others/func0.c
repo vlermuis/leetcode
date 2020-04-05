@@ -122,6 +122,99 @@ int findMaxDiff(int* nums, int numsSize)
     return max_diff;
 
 }
+/* List functoins */
+
+
+ struct ListNode {
+    int val;
+    struct ListNode *next;
+ };
+
+typedef struct ListNode listnode;
+
+
+void display_list(listnode* plist)
+{
+    while(plist != NULL)
+    {
+        printf("%d, ", plist->val);
+        plist = plist->next;
+    }
+}
+
+void clean_list(listnode* plist)
+{
+    listnode* ptmp = NULL;
+    while(plist != NULL)
+    {
+        ptmp = plist->next;
+        free(plist);
+        plist = ptmp;
+    }
+}
+
+
+void add_to_list(int data, listnode** pHead)
+{
+    if ((*pHead) == NULL)
+    {
+        listnode* pNode = (listnode*)malloc(sizeof(listnode));
+        pNode->val = data;
+        pNode->next = NULL;
+        (*pHead) = pNode;
+        return;
+    }
+    else
+    {
+        listnode* pCurrent = *pHead;
+        while(pCurrent->next != NULL)
+        {
+            pCurrent = pCurrent->next;
+        }
+        listnode* pNode = (listnode*)malloc(sizeof(listnode));
+        pNode->val = data;
+        pNode->next = NULL;
+        pCurrent->next = pNode;
+    }
+
+}
+
+void array_to_list(int * nums, int data_size, listnode** pHead)
+{
+    int i;
+    for (i = 0; i < data_size; i++)
+    {
+        add_to_list(nums[i], pHead);
+    }
+
+}
+
+
+void display_n_from_tail(listnode* head, int n)
+{
+    listnode* prev = head;
+    int idx = 0;
+    while(head != NULL)
+    {
+        head = head->next;
+        idx++;
+        if (idx == 3)
+        {
+            break;
+        }
+    }
+    while(head != NULL)
+    {
+        head = head->next;
+        prev = prev->next;
+    }
+    printf("%d\n", prev->val);
+}
+
+
+/********************************************/
+
+
 
 int data[] = {12, 9, 2, 1, 4, 23, 7, 5};//8
 
