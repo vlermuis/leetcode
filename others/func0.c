@@ -266,6 +266,20 @@ char* convertDecToHex(int num)
     return result;
 }
 
+//convert ascii to integer
+// if not ascii code return -1
+int asciiToInt(int ascii)
+{
+    if ((ascii >=30) && (ascii <=39))
+    {
+        return ascii-30;
+    }
+    else
+    {
+        return -1;
+    }
+}
+
 
 int data[] = {12, 9, 2, 1, 4, 23, 7, 5};//8
 
