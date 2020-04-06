@@ -281,6 +281,23 @@ int asciiToInt(int ascii)
 }
 
 
+/*
+ double each odd number in array
+*/
+void doubleEachOddNumber(int* nums, int numsSize)
+{
+    int i;
+    for (i = 0; i < numsSize; i++)
+    {
+        if (nums[i] % 2)
+        {
+            nums[i] = nums[i] << 1;
+         }
+
+    }
+}
+
+
 int data[] = {12, 9, 2, 1, 4, 23, 7, 5};//8
 
 int data2[] = {0, 1, 5, 9, 11, 23, 39, 45, 55, 99, 100}; //11
