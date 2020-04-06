@@ -214,6 +214,57 @@ void display_n_from_tail(listnode* head, int n)
 
 /********************************************/
 
+char* convertDecToHex(int num)
+{
+    char rev_hex[32] = {0};
+    char result[32] = {0};
+    int digits = 0;
+    int cnum = num;
+    int i;
+    while (cnum > 0)
+    {
+        int fr = cnum % 16;
+        if (fr < 9)
+        {
+            sprintf(&rev_hex[digits],"%d",fr);
+        }
+        else
+        {
+            switch(fr)
+            {
+            case 10:
+                rev_hex[digits] = 'A';
+                break;
+            case 11:
+                rev_hex[digits] = 'B';
+                break;
+            case 12:
+                rev_hex[digits] = 'C';
+                break;
+            case 13:
+                rev_hex[digits] = 'D';
+                break;
+            case 14:
+                rev_hex[digits] = 'E';
+                break;
+            case 15:
+                rev_hex[digits] = 'F';
+                break;
+            default:
+            break;
+            }
+        }
+        cnum /=16;
+        digits++;
+    }
+    result[0] = '0';
+    result[1] = 'x';
+    for (i = 0; i < digits; i++)
+    {
+        result[i+2] = rev_hex[digits-i-1];
+    }
+    return result;
+}
 
 
 int data[] = {12, 9, 2, 1, 4, 23, 7, 5};//8
