@@ -178,6 +178,21 @@ void myLinkedListFree(MyLinkedList* obj) {
 /*********************************************************/
 
 
+void myLinkedListReverse(MyLinkedList* obj)
+{
+    listnode* current = obj->head;
+    listnode* prev = NULL;
+    listnode* next = NULL;
+    while (current != NULL)
+    {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    obj->head = prev;
+}
+
 void myLinkedListDisplay(MyLinkedList* obj)
 {
     listnode * current = obj->head;
@@ -223,6 +238,9 @@ int main()
     myLinkedListDisplay(mll);
 
     myLinkedListDeleteAtIndex(mll, 4);
+    myLinkedListDisplay(mll);
+
+    myLinkedListReverse(mll);
     myLinkedListDisplay(mll);
 
     myLinkedListFree(mll);
