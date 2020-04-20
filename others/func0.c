@@ -297,6 +297,20 @@ void doubleEachOddNumber(int* nums, int numsSize)
     }
 }
 
+/* function reverses a string */
+void reverse_string(char* str)
+{
+    int len = strlen(str);
+    int i;
+    for (i = 0; i < len/2; i++)
+    {
+        char temp = str[i];
+        str[i] = str[len - 1 - i];\
+        str[len - 1 - i] = temp;
+    }
+}
+
+
 
 int data[] = {12, 9, 2, 1, 4, 23, 7, 5};//8
 
