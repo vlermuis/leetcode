@@ -63,6 +63,21 @@ int countOneBits(int num)
     }
     return result;
 }
+int countOneBits2(int num)
+{
+    int result = 0;
+    while(num > 0)
+    {
+        if (1 & num)
+        {
+            result++;
+        }
+        num = num >> 1;
+    }
+    return result;
+}
+
+
 
 int binarySearch(int* nums, int numsSize, int val)
 {
