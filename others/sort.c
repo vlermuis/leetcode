@@ -14,13 +14,15 @@ Split your array in half. Recursively merge sort the left and right sub-arrays. 
 
 Pros:
 
-Has  O(nlogn)  worst-case run time.
+Has  O(n log n)  worst-case run time.
 Of the 3 algorithms here, it is the only one that is stable, so if you want to retain the ordering of comparatively equivalent items, this should be your go-to.
 Easy to implement on linked list data structures. Does not require random access.
 Cons:
 
 Has  O(n)  space complexity, which is worse than the other 2 sorts.
 Slower than the other 2 algorithms in practice. Why? You have to write all your data into another array and back into your original one. Copying is usually slower than comparing.
+
+
 Heap Sort
 
 Generate a heap data structure on the array. Then, pop the top of the heap and move it to the end of the array. Repeat until the heap is empty and the entire array is sorted.
@@ -33,6 +35,8 @@ Cons:
 
 Unstable!
 Still much slower than Quick Sort on average. You still need to perform a swap on every element in the array, even if it’s already in the right place.
+
+
 Quick Sort
 
 Pick a pivot from the array and partition the array into sub-arrays. Everything in the left sub-array is less than the pivot. 
@@ -41,7 +45,7 @@ Everything in the right sub-array is greater than the pivot. Recursively sort th
 Pros:
 
 Generally the fastest sorting algorithm in practice. It only swaps what needs to be swapped. Swaps are slow!
-Can be performed in-place, but in practice, the stack frames from recursive function calls results in  O(logn)  space complexity.
+Can be performed in-place, but in practice, the stack frames from recursive function calls results in  O(log n)  space complexity.
 Cons:
 
 Has  O(n2)  in the worst case. Ideally, the chosen pivot is the median. The further away it is from the median, the worse the performance.
@@ -53,7 +57,7 @@ If you’re constrained in space, go for heap sort. If you need something stable
 
 Modern sorting algorithms use hybrid sorts that combine the best qualities of the different basic sorting algorithms. 
 Perhaps the most widely used (and arguably the “best”) is introsort (std::sort in C++) which runs quick sort and switches to heap sort when the recursion gets too deep. 
-This way, you get the fast performance of quick sort in practice while guaranteeing a worst case  O(nlogn)  run time.
+This way, you get the fast performance of quick sort in practice while guaranteeing a worst case  O(n log n)  run time.
 */
 
 
