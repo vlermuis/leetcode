@@ -2,8 +2,8 @@
 1365. How Many Numbers Are Smaller Than the Current Number (Easy)
 
 https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/
-Runtime: 56 ms, faster than 13.40% of C++ online submissions for How Many Numbers Are Smaller Than the Current Number.
-Memory Usage: 6.7 MB, less than 100.00% of C++ online submissions for How Many Numbers Are Smaller Than the Current Number.
+Runtime: 8 ms, faster than 99.69% of C++ online submissions for How Many Numbers Are Smaller Than the Current Number.
+Memory Usage: 7.1 MB, less than 100.00% of C++ online submissions for How Many Numbers Are Smaller Than the Current Number.
 */
 
 #include <bits/stdc++.h>
@@ -20,19 +20,35 @@ class Solution {
 public:
     vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
         vector<int> result;
+        int counts[101] = {0};
+
+        for(auto& num : nums)
+        {
+            counts[num]++;
+        }
+        int sum = 0;
+        for (auto i = 0; i < 101; i++)
+        {
+            sum += counts[i];
+            counts[i] = sum;
+        }
+        int res[1024] = {0};
         for (auto i = 0; i < nums.size(); i++)
         {
-            int r = 0;
-            for (auto j = 0; j < nums.size(); j++)
+            if (nums[i] > 0)
             {
-                if ((i != j) && (nums[j] < nums[i]))
-                    {
-                        r++;
-                    }
+                result.push_back(counts[nums[i]-1]);
+                res[i] = counts[nums[i]-1];
             }
-            result.push_back(r);
+            else
+            {
+                result.push_back(0);
+                res[i] = 0;
+            }
         }
         return result;
+
+        
     }
 };
 
