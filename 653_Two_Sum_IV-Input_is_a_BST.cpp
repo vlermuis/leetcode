@@ -2,7 +2,7 @@
 653. Two Sum IV - Input is a BST (Easy)
 
 https://leetcode.com/problems/two-sum-iv-input-is-a-bst/
-Runtime: 80 ms, faster than 7.20% of C++ online submissions for Two Sum IV - Input is a BST.
+Runtime: 44 ms, faster than 63.87% of C++ online submissions for Two Sum IV - Input is a BST.
 Memory Usage: 22.5 MB, less than 100.00% of C++ online submissions for Two Sum IV - Input is a BST.
 */
 
@@ -103,17 +103,22 @@ public:
     bool findTarget(TreeNode* root, int k) {
         vector<int> vals;
         inorder_to_vect(root, vals);
-        for (auto itr = vals.begin(); itr != vals.end(); itr++)
+        int r = vals.size() -1;
+        int l = 0;
+        while (l < r)
         {
-            for (auto jtr = vals.begin(); jtr != vals.end(); jtr++)
+            if (vals[l] + vals[r] == k)
             {
-                if ((itr != jtr) && (*itr + *jtr == k))
-                {
-                    return true;
-                }
+                return true;
             }
+            else if (vals[l] + vals[r] < k)
+                {
+                    l++;
+                } else
+                {
+                    r--;
+                }
         }
-
         return false;
     }
 };
