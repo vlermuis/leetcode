@@ -4,8 +4,8 @@
 flooding
 
 https://leetcode.com/problems/number-of-enclaves/
-Runtime: 132 ms, faster than 15.22% of C++ online submissions for Number of Enclaves.
-Memory Usage: 22 MB, less than 6.25% of C++ online submissions for Number of Enclaves.
+Runtime: 116 ms, faster than 20.23% of C++ online submissions for Number of Enclaves.
+Memory Usage: 21.7 MB, less than 6.25% of C++ online submissions for Number of Enclaves.
 */
 
 class Solution {
@@ -39,17 +39,11 @@ public:
         for (auto i = 0; i < A[0].size(); i++)
         {
             flood(A, 0, i);
-        }
-        for (auto i = 0; i < A[0].size(); i++)
-        {
             flood(A, A.size()-1, i);
         }
         for (auto i = 0; i < A.size(); i++)
         {
             flood(A, i, 0);
-        }
-        for (auto i = 0; i < A.size(); i++)
-        {
             flood(A, i, A[0].size()-1);
         }
 
@@ -57,7 +51,8 @@ public:
         {
             for (auto j = 0; j < A[0].size(); j++)
             {
-                result += A[i][j];
+                if (A[i][j] == 1)
+                result++;
             }
         }
 
