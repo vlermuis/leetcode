@@ -11,7 +11,9 @@ using namespace std;
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 
@@ -21,6 +23,7 @@ struct TreeNode
     TreeNode *left;
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
 class Solution {
@@ -46,11 +49,17 @@ public:
     }
 
     // A utility function to create a new BST node
-    TreeNode *newNode(int item)
+/*    TreeNode *newNode(int item)
     {
         TreeNode *temp =  (TreeNode*)malloc(sizeof(TreeNode));
         temp->val = item;
         temp->left = temp->right = NULL;
+        return temp;
+    }
+*/
+    TreeNode *newNode(int item)
+    {
+        TreeNode *temp =  new TreeNode(item);
         return temp;
     }
     /* A utility function to insert a new node with given key in BST */
@@ -68,6 +77,40 @@ public:
         /* return the (unchanged) node pointer */
         return node;
     }
+    TreeNode* insertIntoBST(TreeNode* root, int val) {
+        if (root == nullptr)
+        {
+            return newNode(val);
+        }
+        if (val < root->val)
+        {
+            root->left  = insertIntoBST(root->left, val);
+        }
+        else if (val > root->val)
+        {
+            root->right = insertIntoBST(root->right, val);
+        }
+        return root;
+    }
+
+
+    TreeNode* searchBST(TreeNode* root, int val) {
+        if (root != nullptr)
+        {
+            if (root->val == val)
+            {
+                return root;
+            }
+            if (val < root->val)
+            {
+                return searchBST(root->left, val);
+            } else if (val > root->val)
+            {
+                return searchBST(root->right, val);
+            }
+        }
+        return nullptr;
+   }
 
     // A utility function to do inorder traversal of BST
     void inorder_to_vect(TreeNode *root, vector<int> &v)
@@ -86,7 +129,7 @@ public:
         {
             post_order_traversal_and_clean(root->left);
             post_order_traversal_and_clean(root->right);
-            free(root);
+            delete root;
             root = NULL;
         }
     }
@@ -104,39 +147,16 @@ public:
                 return true;
             }
             else if (vals[l] + vals[r] < k)
-                {
-                    l++;
-                } else
-                {
-                    r--;
-                }
+            {
+                l++;
+            } else
+            {
+                r--;
+            }
         }
         return false;
 
     }
-    /**************************************/
-    vector<int> twoSum(vector<int>& numbers, int target) {
-         vector<int> result;
-         int r = numbers.size() -1;
-         int l = 0;
-         while (l < r)
-         {
-             if (numbers[l] + numbers[r] == target)
-             {
-                 result.push_back(l+1); //first is 1(not 0)
-                 result.push_back(r+1);
-                 return result;
-             } else if (numbers[l] + numbers[r] < target)
-             {
-                 l++;
-             } else
-             {
-                 r--;
-             }
-         }
-         return result;
-    }
-/******************************************************************/
 
     int sumEvenGrandparent(TreeNode* root, int p = 1, int gp = 1) {
 
@@ -180,7 +200,15 @@ int main() {
     solution.insert(root, 10);
     solution.insert(root, 90);
 
-    cout << solution.findTarget(root, 60) << "\n";
+//    cout << solution.findTarget(root, 60) << "\n";
+    TreeNode *result = solution.searchBST(root, 66);
+    if (result != NULL)
+    {
+        cout << "found : " << result->val << "\n";
+    } else
+    {
+        cout << "not found\n";
+    }
 
     solution.post_order_traversal_and_clean(root);
     return 0;
