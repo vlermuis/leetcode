@@ -2,6 +2,10 @@
 75. Sort Colors (Medium)
 
 https://leetcode.com/problems/sort-colors/
+
+Runtime: 0 ms, faster than 100.00% of C++ online submissions for Sort Colors.
+Memory Usage: 8.5 MB, less than 94.74% of C++ online submissions for Sort Colors.
+
 Runtime: 0 ms, faster than 100.00% of C++ online submissions for Sort Colors.
 Memory Usage: 8.6 MB, less than 89.47% of C++ online submissions for Sort Colors.
 */
@@ -16,7 +20,38 @@ using namespace std;
 
 class Solution {
 public:
+
     void sortColors(vector<int>& nums) {
+        int redidx = 0;
+        int whiteidx = 0;
+        int blueidx = nums.size()-1;
+        while (whiteidx <= blueidx)
+        {
+            if (nums[whiteidx] == 0)
+            {
+                int temp = nums[redidx];
+                nums[redidx] = nums[whiteidx];
+                nums[whiteidx] = temp;
+                redidx++;
+                whiteidx++;
+            }
+            else if (nums[whiteidx] == 2)
+            {
+                int temp = nums[blueidx];
+                nums[blueidx] = nums[whiteidx];
+                nums[whiteidx] = temp;
+                blueidx--;
+            }
+            else // nums[whitebox] == 1
+            {
+                whiteidx++;
+            }
+        }
+    }
+};
+
+
+    void _sortColors(vector<int>& nums) {
         vector<int> colorcounts{0,0,0};
         for (auto i = 0; i < nums.size(); i++)
         {
