@@ -32,7 +32,7 @@ public:
         return bIsCurOneBit;
     }
 };
-
+
 int main()
 {
     vector<int> v{1, 0, 0};
