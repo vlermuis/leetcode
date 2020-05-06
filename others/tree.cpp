@@ -49,14 +49,6 @@ public:
     }
 
     // A utility function to create a new BST node
-/*    TreeNode *newNode(int item)
-    {
-        TreeNode *temp =  (TreeNode*)malloc(sizeof(TreeNode));
-        temp->val = item;
-        temp->left = temp->right = NULL;
-        return temp;
-    }
-*/
     TreeNode *newNode(int item)
     {
         TreeNode *temp =  new TreeNode(item);
@@ -112,6 +104,16 @@ public:
         return nullptr;
    }
 
+    void preorder_to_vect(TreeNode *root, vector<int> &v)
+    {
+        if (root != NULL)
+        {
+            v.push_back(root->val);
+            preorder_to_vect(root->left, v);
+            preorder_to_vect(root->right, v);
+        }
+    }
+
     // A utility function to do inorder traversal of BST
     void inorder_to_vect(TreeNode *root, vector<int> &v)
     {
@@ -122,6 +124,16 @@ public:
             inorder_to_vect(root->right, v);
         }
     }
+    void postorder_to_vect(TreeNode *root, vector<int> &v)
+    {
+        if (root != NULL)
+        {
+            postorder_to_vect(root->left, v);
+            postorder_to_vect(root->right, v);
+            v.push_back(root->val);
+        }
+    }
+
 
     void post_order_traversal_and_clean(TreeNode* root)
     {
@@ -175,8 +187,66 @@ public:
             return 0;
         }
     }
+/*************************************************************************/
+
+    vector<int> getAllElements(TreeNode* root1, TreeNode* root2) {
+        vector<int> result;
+        vector<int> dop;
+        inorder_to_vect(root1, result);
+        inorder_to_vect(root2, dop);
+        for (auto i = 0; i < dop.size(); i++)
+        {
+            auto itr = lower_bound(result.begin(), result.end(), dop[i]);
+            result.insert(itr, dop[i]);
+        }
+
+        return result;
+    }
+/* test case supprot */
+
+    void display_vect(vector<int> v)
+    {
+        for (auto x : v)
+        {
+            cout << x << ", ";
+        }
+        cout << "\n";
+    }
+
+    void testcase_getAllElements(vector<int> vtree1, vector<int> vtree2)
+    {
+        TreeNode *root1 = NULL;
+        TreeNode *root2 = NULL;
+        vector<int> result;
+        result.clear();
+
+        for (auto i = 0; i < vtree1.size(); i++)
+        {
+            root1 = insert(root1, vtree1[i]);
+        }
+        for (auto i = 0; i < vtree2.size(); i++)
+        {
+            root2 = insert(root2, vtree2[i]);
+        }
+        result = getAllElements(root1, root2);
+        display_vect(result);
+        result.clear();
+        post_order_traversal_and_clean(root1);
+        post_order_traversal_and_clean(root2);
+    }
 
 };
+
+void display_vect(vector<int> v)
+{
+    for (auto x : v)
+    {
+        cout << x << ", ";
+    }
+    cout << "\n";
+}
+
+
 
 int main() {
 
@@ -201,7 +271,8 @@ int main() {
     solution.insert(root, 90);
 
 //    cout << solution.findTarget(root, 60) << "\n";
-    TreeNode *result = solution.searchBST(root, 66);
+
+/*    TreeNode *result = solution.searchBST(root, 66);
     if (result != NULL)
     {
         cout << "found : " << result->val << "\n";
@@ -209,7 +280,50 @@ int main() {
     {
         cout << "not found\n";
     }
+*/
+/*
+    vector<int> tree_vect;
+    tree_vect.clear();
+
+    solution.inorder_to_vect(root, tree_vect);
+    display_vect(tree_vect);
+    tree_vect.clear();
+*/
+
+    solution.testcase_getAllElements({2,1,4},{1,0,3});
+    solution.testcase_getAllElements({0,-10,10},{5,1,7,0,2});
+    solution.testcase_getAllElements({},{5,1,7,0,2});
+    solution.testcase_getAllElements({0,-10,10},{});
+ /**************/
+/*
+    TreeNode *root1 = NULL;
+    TreeNode *root2 = NULL;
+    vector<int> result;
+    result.clear();
+
+    vector<int> vtree1{2,1,4};
+    vector<int> vtree2{1,0,3};
+    for (auto i = 0; i < vtree1.size(); i++)
+    {
+        root1 = solution.insert(root1, vtree1[i]);
+    }
+    for (auto i = 0; i < vtree2.size(); i++)
+    {
+        root2 = solution.insert(root2, vtree2[i]);
+    }
+    result = solution.getAllElements(root1, root2);
+    display_vect(result);
+    result.clear();
+    solution.post_order_traversal_and_clean(root1);
+    solution.post_order_traversal_and_clean(root2);
+*/
+
+
+
+
+
 
     solution.post_order_traversal_and_clean(root);
+
     return 0;
 }
