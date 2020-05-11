@@ -84,6 +84,14 @@ public:
         }
         return root;
     }
+    TreeNode* bstFromPreorder(vector<int>& preorder) {
+        TreeNode* root = nullptr;
+        for (auto x : preorder)
+        {
+            root = insertIntoBST(root, x);
+        }
+        return root;
+    }
 
 
     TreeNode* searchBST(TreeNode* root, int val) {
@@ -102,7 +110,7 @@ public:
             }
         }
         return nullptr;
-   }
+    }
 
     void preorder_to_vect(TreeNode *root, vector<int> &v)
     {
@@ -235,6 +243,7 @@ public:
         post_order_traversal_and_clean(root2);
     }
 
+
 };
 
 void display_vect(vector<int> v)
@@ -289,12 +298,13 @@ int main() {
     display_vect(tree_vect);
     tree_vect.clear();
 */
-
+/*
     solution.testcase_getAllElements({2,1,4},{1,0,3});
     solution.testcase_getAllElements({0,-10,10},{5,1,7,0,2});
     solution.testcase_getAllElements({},{5,1,7,0,2});
     solution.testcase_getAllElements({0,-10,10},{});
- /**************/
+*/
+/**************/
 /*
     TreeNode *root1 = NULL;
     TreeNode *root2 = NULL;
