@@ -43,11 +43,35 @@ public:
 
         return result;
     }
+    /*
+     * Given an array of positive numbers and a positive number ‘k’, find the maximum sum of any contiguous subarray of size ‘k’.
+     * */
+    int findMaxSumSubArray(int k, const vector<int>& arr) {
+        int maxSum = 0;
+        int cursum = 0;
+        int wstart = 0;
+        for (auto i = 0; i < arr.size(); i++)
+        {
+            cursum += arr[i];
+            if (i >= k - 1)
+            {
+                maxSum = max(cursum, maxSum);
+                cursum -= arr[wstart];
+                wstart++;
+
+            }
+        }
+
+        return maxSum;
+    }
 };
 
 int main() {
     vector<int> v{1, 3, 2, 6, -1, 4, 1, 8, 2};
     Solution solution;
-    vector<double> r = solution.AverageContSubArr(v, 5);
-    display_vect(r);
+//    vector<double> r = solution.AverageContSubArr(v, 5);
+//    display_vect(r);
+
+    vector<int> v1{2, 1, 5, 1, 3, 2};
+    cout << solution.findMaxSumSubArray(3, v1) << "\n";
 }
