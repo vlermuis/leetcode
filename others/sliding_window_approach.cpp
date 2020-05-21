@@ -64,14 +64,44 @@ public:
 
         return maxSum;
     }
+    /*
+     * Given a string, find the length of the longest substring in it with no more than K distinct characters.
+     * */
+    int findLength(const string& str, int k) {
+        int maxLength = 0;
+        int windowstart = 0;
+        unordered_map<char, int> charFrequencyMap;
+        for (auto windowend = 0; windowend < str.length(); windowend++)
+        {
+            charFrequencyMap[str[windowend]]++;
+            while(charFrequencyMap.size() > k)
+            {
+                charFrequencyMap[str[windowstart]]--;
+                if (charFrequencyMap[str[windowstart]] == 0)
+                {
+                    charFrequencyMap.erase(str[windowstart]);
+                }
+                windowstart++;
+            }
+            maxLength = max(maxLength, windowend - windowstart + 1);
+        }
+
+
+        return maxLength;
+    }
 };
 
 int main() {
-    vector<int> v{1, 3, 2, 6, -1, 4, 1, 8, 2};
+//    vector<int> v{1, 3, 2, 6, -1, 4, 1, 8, 2};
     Solution solution;
 //    vector<double> r = solution.AverageContSubArr(v, 5);
 //    display_vect(r);
 
-    vector<int> v1{2, 1, 5, 1, 3, 2};
-    cout << solution.findMaxSumSubArray(3, v1) << "\n";
+//    vector<int> v1{2, 1, 5, 1, 3, 2};
+//    cout << solution.findMaxSumSubArray(3, v1) << "\n";
+    cout << solution.findLength("araaci", 2) << "\n";
+    cout << solution.findLength("araaci", 1) << "\n";
+    cout << solution.findLength("cbbebi", 3) << "\n";
+
+    return 0;
 }
