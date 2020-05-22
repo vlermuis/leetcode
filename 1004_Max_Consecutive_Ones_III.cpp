@@ -49,7 +49,7 @@ public:
         }
         return j - i;
     }
-    int longestOnes(vector<int>& A, int K) {
+    int _longestOnes(vector<int>& A, int K) {
         int zeros = 0;
         int windowstart = 0;
         int windowend = 0;
@@ -68,6 +68,30 @@ public:
         }
         return (windowend - windowstart);
     }
+	int longestOnes(vector<int>& A, int K) {
+        int zeros = 0;
+        int windowstart = 0;
+        int windowend = 0;
+        for (windowend = 0; windowend < A.size(); windowend++)
+        {
+            if (A[windowend] == 0)
+            {
+                zeros++;
+            }
+            if (zeros > K)
+            {
+                if (A[windowstart] == 0)
+                {
+                    zeros--;
+                }
+                windowstart++;
+            }
+
+        }
+        return (windowend - windowstart);
+    }
+};
+
 };
 
 int main() {
