@@ -2,8 +2,8 @@
 1423. Maximum Points You Can Obtain from Cards (Medium)
 
 https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/
-Runtime: 204 ms, faster than 34.50% of C++ online submissions for Maximum Points You Can Obtain from Cards.
-Memory Usage: 42.5 MB, less than 81.02% of C++ online submissions for Maximum Points You Can Obtain from Cards.
+Runtime: 116 ms, faster than 98.83% of C++ online submissions for Maximum Points You Can Obtain from Cards.
+Memory Usage: 42.3 MB, less than 99.67% of C++ online submissions for Maximum Points You Can Obtain from Cards.
 */
 
 #include <iostream>
@@ -36,6 +36,8 @@ public:
         return result;
     }
 };
+static int x = [] () {ios::sync_with_stdio(false); cin.tie(0); return 0;} (); 
+
 int main() {
     vector<int> v{1,2,3,4,5,6,1};
     vector<int> v1{2,2,2};
